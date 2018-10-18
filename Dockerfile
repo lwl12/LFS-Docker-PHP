@@ -8,11 +8,10 @@ RUN apk add --no-cache --virtual .build-deps \
        make \
        pcre-dev \
     && apk add --no-cache\
-       libpq-dev \
-       libfreetype6-dev \
+       postgresql-dev \
+       freetype-dev \
        libpng-dev \
-       libmhash-dev \
-       ntpdate \
+       tzdata \
        unzip \
        imagemagick-dev \
        git \
