@@ -1,14 +1,7 @@
 FROM php:7-fpm-alpine
 
 # Change Timezone && Install Base Components
-RUN apk update \ 
-    && apk add --no-cache --virtual .build-deps \
-       autoconf \
-       g++ \
-       libtool \
-       make \
-       pcre-dev \
-    && apk add --no-cache\
+RUN apk add --no-cache\
        postgresql-dev \
        freetype-dev \
        libpng-dev \
@@ -25,15 +18,16 @@ RUN apk update \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-configure opcache --enable-opcache \
     && docker-php-ext-install gd pdo_mysql mysqli pgsql pdo_pgsql opcache zip xmlrpc exif bcmath intl zip soap iconv gettext\
-    && echo "step 1" \
+RUN apk add --no-cache --virtual .build-deps \
+       autoconf \
+       g++ \
+       libtool \
+       make \
+       pcre-dev \
     && pecl install redis \
-    && echo "step 2" \
     && pecl install imagick \
-    && echo "step 3" \
 	&& docker-php-ext-enable redis imagick \
-    && echo "step 4" \
     && apk del .build-deps
-
 
 # PHP Composer
 ADD https://dl.laravel-china.org/composer.phar /usr/local/bin/composer
