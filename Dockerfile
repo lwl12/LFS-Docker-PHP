@@ -25,10 +25,14 @@ RUN apk update \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-configure opcache --enable-opcache \
     && docker-php-ext-install gd pdo_mysql mysqli pgsql pdo_pgsql opcache zip xmlrpc exif bcmath intl zip soap iconv gettext\
+    && echo "step 1" \
     && pecl install redis \
+    && echo "step 2" \
     && pecl install imagick \
+    && echo "step 3" \
 	&& docker-php-ext-enable redis imagick \
-    && apk del .build-deps \
+    && echo "step 4" \
+    && apk del .build-deps
 
 
 # PHP Composer
