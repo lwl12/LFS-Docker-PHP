@@ -19,6 +19,7 @@ RUN apk add --no-cache --virtual .build-deps \
        icu \
        icu-dev \
        libxml2-dev \
+       gettext-dev \
        freetype-dev \
        libjpeg-turbo-dev \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
