@@ -1,7 +1,8 @@
 FROM php:7-fpm-alpine
 
 # Change Timezone && Install Base Components
-RUN apk add --no-cache --virtual .build-deps \
+RUN apk update \ 
+    && apk add --no-cache --virtual .build-deps \
        autoconf \
        g++ \
        libtool \
@@ -14,7 +15,6 @@ RUN apk add --no-cache --virtual .build-deps \
        tzdata \
        unzip \
        imagemagick-dev \
-       git \
        libintl \
        icu \
        icu-dev \
