@@ -22,7 +22,7 @@ RUN apk add --no-cache --virtual .build-deps \
        libjpeg-turbo-dev \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-configure opcache --enable-opcache \
-    && docker-php-ext-install gd pdo_mysql mysqli pgsql pdo_pgsql opcache zip xmlrpc exif bcmath intl zip soap iconv gettext\
+    && docker-php-ext-install gd pdo_mysql mysqli pgsql pdo_pgsql opcache zip xmlrpc exif bcmath intl zip soap iconv gettext sockets \
     && apk del .build-deps
 RUN apk add --no-cache --virtual .build-deps \
        autoconf \
