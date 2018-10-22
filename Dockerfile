@@ -48,6 +48,6 @@ RUN apk add --no-cache python3 && \
     if [[ ! -e /usr/bin/python ]]; then ln -sf /usr/bin/python3 /usr/bin/python; fi && \
     rm -r /root/.cache \
 
-COPY php.ini /usr/local/etc/php/php.ini
+COPY ./php.ini /usr/local/etc/php/php.ini
 
 CMD ["php-fpm"]
