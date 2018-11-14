@@ -16,13 +16,14 @@ RUN apk add --no-cache --virtual .build-deps \
        libintl \
        icu \
        icu-dev \
+       tidyhtml-dev \
        libxml2-dev \
        gettext-dev \
        freetype-dev \
        libjpeg-turbo-dev \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-configure opcache --enable-opcache \
-    && docker-php-ext-install gd pdo_mysql mysqli pgsql pdo_pgsql opcache zip xmlrpc exif bcmath intl zip soap iconv gettext sockets \
+    && docker-php-ext-install gd pdo_mysql mysqli pgsql pdo_pgsql opcache zip xmlrpc exif bcmath intl zip soap iconv gettext sockets tidy\
     && apk del .build-deps
 RUN apk add --no-cache --virtual .build-deps \
        autoconf \
