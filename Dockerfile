@@ -25,6 +25,7 @@ RUN apk add --no-cache --virtual .build-deps \
        libpng-dev \
        tzdata \
        unzip \
+       libzip-dev \
        imagemagick-dev \
        libintl \
        icu \
